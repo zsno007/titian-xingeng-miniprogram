@@ -35,6 +35,18 @@
 			"style": {
 				"navigationBarTitleText": "专注计划"
 			}
+		},
+		{
+			"path": "pages/profile/profile",
+			"style": {
+				"navigationBarTitleText": "个人中心"
+			}
+		},
+		{
+			"path": "pages/government/complaint",
+			"style": {
+				"navigationBarTitleText": "政府服务投诉"
+			}
 		}
 	],
 	"globalStyle": {

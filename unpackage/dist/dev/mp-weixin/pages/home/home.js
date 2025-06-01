@@ -218,21 +218,29 @@ exports.default = void 0;
 //
 //
 var _default = {
+  data: function data() {
+    return {
+      currentTab: 'home'
+    };
+  },
   methods: {
     goFocus: function goFocus() {
       uni.navigateTo({
         url: '/pages/focus/focus'
       });
     },
-    goRecord: function goRecord() {
-      // uni.navigateTo({ url: '/pages/record/record' });
-    },
-    goVR: function goVR() {
-      // uni.navigateTo({ url: '/pages/vr/vr' });
-    },
-    goMulti: function goMulti() {
-      // uni.navigateTo({ url: '/pages/multi/multi' });
+    switchTab: function switchTab(tab) {
+      if (tab === this.currentTab) return;
+      this.currentTab = tab;
+      var url = '';
+      if (tab === 'home') url = '/pages/home/home';else if (tab === 'index') url = '/pages/index/index';else if (tab === 'focus') url = '/pages/focus/focus';else if (tab === 'profile') url = '/pages/profile/profile';
+      uni.navigateTo({
+        url: url
+      });
     }
+  },
+  onLoad: function onLoad() {
+    this.currentTab = 'home';
   }
 };
 exports.default = _default;

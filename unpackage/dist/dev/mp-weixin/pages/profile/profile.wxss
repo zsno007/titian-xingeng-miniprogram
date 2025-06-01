@@ -1,0 +1,209 @@
+
+.profile-bg.data-v-60cb334c {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #e6f7b6 0%, #fffde7 100%);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+.profile-header.data-v-60cb334c {
+  padding: 0 0 12px 0;
+  background: linear-gradient(180deg, #d6eeb6 0%, #f7fbe7 100%);
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+}
+.header-row.data-v-60cb334c {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 18px 0 18px;
+}
+.icon-back.data-v-60cb334c {
+  font-size: 22px;
+  color: #222;
+}
+.header-title.data-v-60cb334c {
+  font-size: 20px;
+  font-weight: bold;
+  color: #222;
+}
+.header-icons.data-v-60cb334c {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+.icon-more.data-v-60cb334c {
+  font-size: 20px;
+  color: #888;
+}
+.icon-setting.data-v-60cb334c {
+  font-size: 18px;
+  color: #888;
+}
+.user-info.data-v-60cb334c {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 18px 0 0 18px;
+}
+.avatar.data-v-60cb334c {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  margin-right: 14px;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.nickname.data-v-60cb334c {
+  font-size: 18px;
+  color: #222;
+  font-weight: bold;
+}
+.focus-coin.data-v-60cb334c {
+  margin: 16px 18px 0 18px;
+  background: linear-gradient(90deg, #e6f7b6 0%, #fffde7 100%);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 16px;
+  box-shadow: 0 2px 8px rgba(76,192,139,0.08);
+}
+.coin-label.data-v-60cb334c {
+  font-size: 15px;
+  color: #4ec08b;
+  font-weight: bold;
+  margin-right: 8px;
+}
+.coin-value.data-v-60cb334c {
+  font-size: 18px;
+  color: #f7b500;
+  font-weight: bold;
+  margin-right: 8px;
+}
+.coin-arrow.data-v-60cb334c {
+  font-size: 18px;
+  color: #bbb;
+}
+.profile-card.data-v-60cb334c {
+  background: #fff;
+  border-radius: 18px;
+  margin: 18px 18px 0 18px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  padding: 14px 0 0 0;
+}
+.card-title-row.data-v-60cb334c {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px 8px 18px;
+}
+.card-title.data-v-60cb334c {
+  font-size: 16px;
+  color: #222;
+  font-weight: bold;
+}
+.card-more.data-v-60cb334c {
+  font-size: 14px;
+  color: #4ec08b;
+}
+.crop-row.data-v-60cb334c {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 0 12px 0;
+}
+.crop-item.data-v-60cb334c {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.crop-icon.data-v-60cb334c {
+  font-size: 28px;
+  margin-bottom: 2px;
+}
+.crop-label.data-v-60cb334c {
+  font-size: 13px;
+  color: #333;
+}
+.badge.data-v-60cb334c {
+  position: absolute;
+  top: -4px;
+  right: -10px;
+  background: #f44;
+  color: #fff;
+  font-size: 11px;
+  border-radius: 10px;
+  padding: 0 5px;
+  min-width: 16px;
+  text-align: center;
+  font-weight: bold;
+}
+.setting-row.data-v-60cb334c {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 0 14px 0;
+}
+.setting-item.data-v-60cb334c {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.setting-icon.data-v-60cb334c {
+  font-size: 26px;
+  margin-bottom: 2px;
+}
+.setting-label.data-v-60cb334c {
+  font-size: 13px;
+  color: #333;
+}
+.profile-footer.data-v-60cb334c {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  margin: 24px 0 80px 0;
+}
+.tabbar.data-v-60cb334c {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 60px;
+  background: rgba(40,40,40,0.85);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 10;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+.tabbar-item.data-v-60cb334c {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #bbb;
+  font-size: 13px;
+}
+.tabbar-item.active.data-v-60cb334c {
+  color: #3a8cff;
+}
+.iconfont.data-v-60cb334c {
+  font-size: 22px;
+  margin-bottom: 2px;
+}
+.tabbar-text.data-v-60cb334c {
+  font-size: 13px;
+}
+

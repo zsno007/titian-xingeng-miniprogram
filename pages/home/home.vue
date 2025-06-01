@@ -54,19 +54,19 @@
     </view>
     <!-- 底部导航栏 -->
     <view class="tabbar">
-      <view class="tabbar-item active">
+      <view class="tabbar-item" :class="{active: currentTab==='home'}" @click="switchTab('home')">
         <text class="iconfont">🌐</text>
         <text class="tabbar-text">首页</text>
       </view>
-      <view class="tabbar-item">
+      <view class="tabbar-item" :class="{active: currentTab==='index'}" @click="switchTab('index')">
         <text class="iconfont">🛍️</text>
         <text class="tabbar-text">商城</text>
       </view>
-      <view class="tabbar-item">
+      <view class="tabbar-item" :class="{active: currentTab==='focus'}" @click="switchTab('focus')">
         <text class="iconfont">⏳</text>
         <text class="tabbar-text">活动</text>
       </view>
-      <view class="tabbar-item">
+      <view class="tabbar-item" :class="{active: currentTab==='profile'}" @click="switchTab('profile')">
         <text class="iconfont">👤</text>
         <text class="tabbar-text">我的</text>
       </view>
@@ -76,19 +76,28 @@
 
 <script>
 export default {
+  data() {
+    return {
+      currentTab: 'home'
+    }
+  },
   methods: {
     goFocus() {
       uni.navigateTo({ url: '/pages/focus/focus' });
     },
-    goRecord() {
-      // uni.navigateTo({ url: '/pages/record/record' });
-    },
-    goVR() {
-      // uni.navigateTo({ url: '/pages/vr/vr' });
-    },
-    goMulti() {
-      // uni.navigateTo({ url: '/pages/multi/multi' });
+    switchTab(tab) {
+      if(tab === this.currentTab) return;
+      this.currentTab = tab;
+      let url = '';
+      if(tab==='home') url = '/pages/home/home';
+      else if(tab==='index') url = '/pages/index/index';
+      else if(tab==='focus') url = '/pages/focus/focus';
+      else if(tab==='profile') url = '/pages/profile/profile';
+      uni.navigateTo({ url });
     }
+  },
+  onLoad() {
+    this.currentTab = 'home';
   }
 }
 </script>

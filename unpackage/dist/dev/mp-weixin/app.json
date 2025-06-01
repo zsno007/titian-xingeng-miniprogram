@@ -4,7 +4,9 @@
     "pages/login/login",
     "pages/home/home",
     "pages/index/index",
-    "pages/focus/focus"
+    "pages/focus/focus",
+    "pages/profile/profile",
+    "pages/government/complaint"
   ],
   "subPackages": [],
   "window": {

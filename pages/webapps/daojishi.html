@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>种植计时器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: linear-gradient(120deg, #e0f7fa 0%, #b2ebf2 100%);
+            height: 100vh;
+            color: #333;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container {
+            max-width: 100%;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+        
+        .back-icon {
+            font-size: 20px;
+        }
+        
+        .title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        
+        .options {
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .option {
+            width: 30px;
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+        }
+        
+        .plant-icon {
+            width: 120px;
+            height: 120px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .plant-image {
+            width: 80px;
+            height: 80px;
+        }
+        
+        .sounds {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        
+        .sound {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        .sound:nth-child(1) {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .sound:nth-child(2) {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .sound:nth-child(3) {
+            background-color: rgba(76, 175, 80, 0.3);
+        }
+        
+        .timer {
+            text-align: center;
+            font-size: 60px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .status {
+            text-align: center;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+        }
+        
+        .control {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: white;
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .control:nth-child(2) {
+            background-color: #f44336;
+        }
+        
+        .desc {
+            text-align: center;
+            font-size: 16px;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+        
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1500937020220-6a00a27ba4ff');
+            background-size: cover;
+            background-position: center;
+            filter: blur(5px);
+            z-index: 0;
+        }
+        
+        .plant-seed {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,20 C60,20 70,30 70,40 C70,50 60,60 50,60 C40,60 30,50 30,40 C30,30 40,20 50,20 Z" fill="%23d2b48c"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+        
+        .plant-sprout {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,90 C40,80 30,70 30,60 C30,50 40,40 50,40 C60,40 70,50 70,60 C70,70 60,80 50,90 Z M50,50 L40,60 L45,55 L50,65 L55,55 L60,60 Z" fill="%2390ee90"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+        
+        .plant-growth {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,90 C40,80 30,70 30,60 C30,50 40,40 50,40 C60,40 70,50 70,60 C70,70 60,80 50,90 Z M50,50 L40,60 L45,55 L50,65 L55,55 L60,60 Z M50,30 L40,40 L45,35 L50,45 L55,35 L60,40 Z" fill="%2390ee90"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+        
+        .plant-mature {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,90 C40,80 30,70 30,60 C30,50 40,40 50,40 C60,40 70,50 70,60 C70,70 60,80 50,90 Z M50,50 L40,60 L45,55 L50,65 L55,55 L60,60 Z M50,30 L40,40 L45,35 L50,45 L55,35 L60,40 Z M50,20 L40,30 L45,25 L50,35 L55,25 L60,30 Z" fill="%23ffd700"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+        
+        .plant-ready {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,90 C40,80 30,70 30,60 C30,50 40,40 50,40 C60,40 70,50 70,60 C70,70 60,80 50,90 Z M50,50 L40,60 L45,55 L50,65 L55,55 L60,60 Z M50,30 L40,40 L45,35 L50,45 L55,35 L60,40 Z M50,20 L40,30 L45,25 L50,35 L55,25 L60,30 Z M50,10 L40,20 L45,15 L50,25 L55,15 L60,20 Z" fill="%23ffa500"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <div class="status-bar">
+            <div class="back-icon">&lt;</div>
+            <div>9:41</div>
+            <div>
+                <span> evade </span>
+                <span> o </span>
+                <span> 口</span>
+            </div>
+        </div>
+        <div class="title">正在耕作</div>
+        <div class="options">
+            <div class="option">...</div>
+            <div class="option">⊙</div>
+        </div>
+        <div class="sounds">
+            <div class="sound">雨声</div>
+            <div class="sound">蝉鸣</div>
+            <div class="sound">海浪</div>
+        </div>
+        <div class="plant-icon">
+            <div class="plant-image plant-seed"></div>
+        </div>
+        <div class="timer">59:59</div>
+        <div class="status">种子阶段</div>
+        <div class="controls">
+            <div class="control">⟲</div>
+            <div class="control">●</div>
+            <div class="control">■</div>
+        </div>
+        <div class="desc">
+            种植完成可获得60专注币
+            <br>
+            种子实时生长计时器
+        </div>
+    </div>
+
+    <script>
+        // 获取DOM元素
+        const timerElement = document.querySelector('.timer');
+        const statusElement = document.querySelector('.status');
+        const plantImageElement = document.querySelector('.plant-image');
+        const startButton = document.querySelector('.control:nth-child(2)');
+        const resetButton = document.querySelector('.control:nth-child(1)');
+        const stopButton = document.querySelector('.control:nth-child(3)');
+        
+        // 设置初始时间（分钟：秒）
+        let minutes = 59;
+        let seconds = 59;
+        let timerInterval;
+        let isRunning = false;
+        
+        // 更新计时器显示
+        function updateTimerDisplay() {
+            timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        
+        // 更新植物生长阶段
+        function updatePlantStage() {
+            const totalSeconds = minutes * 60 + seconds;
+            
+            if (totalSeconds > 50 * 60 + 59) {
+                // 种子阶段
+                plantImageElement.className = 'plant-image plant-seed';
+                statusElement.textContent = '种子阶段';
+            } else if (totalSeconds > 40 * 60 + 32) {
+                // 发芽阶段
+                plantImageElement.className = 'plant-image plant-sprout';
+                statusElement.textContent = '发芽啦';
+            } else if (totalSeconds > 27 * 60 + 25) {
+                // 生长阶段
+                plantImageElement.className = 'plant-image plant-growth';
+                statusElement.textContent = '分蘖、拔节阶段';
+            } else if (totalSeconds > 12 * 60 + 46) {
+                // 成熟阶段
+                plantImageElement.className = 'plant-image plant-mature';
+                statusElement.textContent = '开始抽穗、扬花';
+            } else {
+                // 完成阶段
+                plantImageElement.className = 'plant-image plant-ready';
+                statusElement.textContent = '再坚持一下，快成熟了';
+            }
+        }
+        
+        // 开始计时
+        function startTimer() {
+            if (!isRunning) {
+                isRunning = true;
+                timerInterval = setInterval(() => {
+                    seconds--;
+                    
+                    if (seconds < 0) {
+                        seconds = 59;
+                        minutes--;
+                    }
+                    
+                    if (minutes < 0) {
+                        clearInterval(timerInterval);
+                        isRunning = false;
+                        // 计时结束处理
+                        plantImageElement.className = 'plant-image plant-ready';
+                        statusElement.textContent = '种植完成';
+                        return;
+                    }
+                    
+                    updateTimerDisplay();
+                    updatePlantStage();
+                }, 1000);
+            }
+        }
+        
+        // 暂停计时
+        function stopTimer() {
+            clearInterval(timerInterval);
+            isRunning = false;
+        }
+        
+        // 重置计时
+        function resetTimer() {
+            clearInterval(timerInterval);
+            isRunning = false;
+            minutes = 59;
+            seconds = 59;
+            updateTimerDisplay();
+            updatePlantStage();
+        }
+        
+        // 绑定按钮事件
+        startButton.addEventListener('click', startTimer);
+        stopButton.addEventListener('click', stopTimer);
+        resetButton.addEventListener('click', resetTimer);
+        
+        // 初始化显示
+        updateTimerDisplay();
+        updatePlantStage();
+    </script>
+</body>
+</html>
+

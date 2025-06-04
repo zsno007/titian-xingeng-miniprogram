@@ -1,0 +1,4 @@
+<!-- index.wxml -->
+<view class="container">
+  <image class="full-screen-image" src="../../assests/tousu.jpg" mode="aspectFill"></image>
+</view>

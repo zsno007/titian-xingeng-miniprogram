@@ -1,0 +1,40 @@
+<view class="container">
+  <!-- 上半部分 -->
+  <view class="top-section">
+    <view class="recommend-section">
+      <view class="recommend-text">
+        <text class="title">今日推荐</text>
+        <text class="description">
+          本书将云南视为一个边疆进程，许多“演员”在其中扮演自己的角色，由此，我们可以将中国理解为一个不断变化与转型的历程，而不只是一个固定的概念。
+        </text>
+        <button class="read-btn">开始阅读</button>
+      </view>
+      <image class="recommend-image" src="../../assests/jifeng.jpg" mode="aspectFill"></image>
+    </view>
+  </view>
+  <view class="selected-books-row">
+      <view class="selected-title">精选好书</view>
+      <view class="view-all-btn">查看全部</view>
+    </view>
+  <!-- 下半部分 -->
+  <view class="bottom-section">
+
+    <swiper class="book-swiper" indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}" duration="300">
+      <swiper-item>
+        <view class="swiper-item-container">
+          <image class="swiper-image" src="../../assests/book1.jpg" mode="aspectFill"></image>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class="swiper-item-container">
+          <image class="swiper-image" src="../../assests/book2.jpg" mode="aspectFill"></image>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class="swiper-item-container">
+          <image class="swiper-image" src="../../assests/book3.jpg" mode="aspectFill"></image>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

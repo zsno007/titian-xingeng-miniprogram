@@ -1,0 +1,13 @@
+<view class="container">
+  <!-- 标题 -->
+  <view class="title-bar">
+    <text class="title-text">正在耕种</text>
+  </view>
+  <!-- 轮播背景图 -->
+  <image class="background" src="{{ backgroundImages[currentBgIndex] }}" mode="aspectFill" />
+
+  <!-- 页面内容 -->
+  <view class="content">
+    <text class="countdown">{{ countdown }}</text>
+  </view>
+</view>

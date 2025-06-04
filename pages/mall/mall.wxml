@@ -1,0 +1,72 @@
+<view class="container">
+  <!-- 背景图 -->
+  <image class="background-image" src="../../assests/beijing.jpg" mode="aspectFill"></image>
+
+  <!-- 页面内容 -->
+  <view class="content">
+
+    <!-- 模块列表 -->
+    <view class="module-list">
+      <!-- 数字文化馆 -->
+      <view class="module-item" bindtap="navigateToDigitalMuseum">
+        <image class="module-image" src="../../assests/tubiao1.jpg" mode="aspectFit"></image>
+        <text class="module-text">数字文化馆</text>
+      </view>
+
+      <!-- 哈尼文化学习 -->
+      <view class="module-item" bindtap="navigateToHaniCulture">
+        <image class="module-image" src="../../assests/tubiao2.jpg" mode="aspectFit"></image>
+        <text class="module-text">哈尼文化学习</text>
+      </view>
+
+      <!-- 哈尼知识竞答 -->
+      <view class="module-item" bindtap="navigateToKnowledgeQuiz">
+        <image class="module-image" src="../../assests/tubiao3.jpg" mode="aspectFit"></image>
+        <text class="module-text">哈尼知识竞答</text>
+      </view>
+
+      <!-- 景区天气直播 -->
+      <view class="module-item" bindtap="navigateToWeatherLive">
+        <image class="module-image" src="../../assests/tubiao4.jpg" mode="aspectFit"></image>
+        <text class="module-text">景区天气直播</text>
+      </view>
+
+      <!-- 交流社区 -->
+      <view class="module-item" bindtap="navigateToCommunity">
+        <image class="module-image" src="../../assests/tubiao5.jpg" mode="aspectFit"></image>
+        <text class="module-text">交流社区</text>
+      </view>
+
+      <!-- 主题深度游 -->
+      <view class="module-item" bindtap="navigateToThemeTour">
+        <image class="module-image" src="../../assests/tubiao6.jpg" mode="aspectFit"></image>
+        <text class="module-text">主题深度游</text>
+      </view>
+
+       <!-- 主题深度游 -->
+       <view class="module-item" bindtap="navigateToThemeTour">
+        <image class="module-image" src="../../assests/tubiao6.jpg" mode="aspectFit"></image>
+        <text class="module-text">扶贫专区</text>
+      </view>
+    </view>
+  </view>
+  <!-- 底部导航栏 -->
+  <view class="tab-bar">
+    <navigator url="/pages/index/index" class="tab-item" hover-class="none">
+      <image src="/images/home.png" class="tab-icon"></image>
+      <text class="tab-text">首页</text>
+    </navigator>
+    <navigator url="/pages/activity/activity" class="tab-item" hover-class="none">
+      <image src="/images/mall.png" class="tab-icon"></image>
+      <text class="tab-text">商城</text>
+    </navigator>
+    <navigator url="/pages/mall/mall" class="tab-item" hover-class="none">
+      <image src="/images/activity.png" class="tab-icon"></image>
+      <text class="tab-text">活动</text>
+    </navigator>
+    <navigator url="/pages/profile/profile" class="tab-item" hover-class="none">
+      <image src="/images/profile.png" class="tab-icon"></image>
+      <text class="tab-text">我的</text>
+    </navigator>
+  </view>
+</view>

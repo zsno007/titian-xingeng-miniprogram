@@ -1,0 +1,23 @@
+<view class="container">
+  <!-- 上半部分：图片展示 -->
+  <view class="top-section">
+    <image class="header-image" src="../../assests/header.jpg" mode="widthFix"></image>
+  </view>
+
+  <!-- 下半部分：视频播放列表 -->
+  <view class="bottom-section">
+    <view class="video-list-title">哈尼族历史起源</view>
+    <view class="video-list">
+      <block wx:for="{{videoList}}" wx:key="id">
+        <view class="video-item">
+          <text class="video-index">{{item.index}}</text>
+          <view class="video-info">
+            <text class="video-title">{{item.title}}</text>
+            <text class="video-description">{{item.description}}</text>
+          </view>
+          <button class="watch-btn" bindtap="watchVideo" data-id="{{item.id}}">观看视频</button>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

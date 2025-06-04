@@ -1,0 +1,103 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #fdf5e6; /* 浅黄色背景 */
+  padding: 0%;
+}
+
+.top-section {
+  position: relative;
+  padding: 30rpx; /* 左右留一定空间 */
+  background-color: #a0c478; /* 绿色背景 */
+  color: #fff;
+}
+
+.recommend-section {
+  display: flex;
+  align-items: center;
+}
+
+.recommend-text {
+  flex: 1;
+  color: #fff;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.description {
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+.read-btn {
+  background-color: #ff9900;
+  color: #fff;
+  border-radius: 10rpx;
+  padding: 10rpx 20rpx; /* 按钮缩小 */
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+
+.recommend-image {
+  width: 200rpx;
+  height: 300rpx;
+  margin-left: 20rpx;
+  border-radius: 10rpx;
+}
+
+.bottom-section {
+  padding: 20rpx;
+  background-color: #fff;
+  margin-top: 120rpx;
+  width: 95%;
+  height: 100rpx;
+  text-align: center;
+}
+
+.selected-books-row {
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  width: 100%;
+}
+
+.selected-title {
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 50rpx;
+  padding: 10rpx 50rpx;
+  font-size: 28rpx;
+}
+
+.view-all-btn {
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 50rpx;
+  padding: 10rpx 50rpx;
+  font-size: 28rpx;
+}
+
+.book-swiper {
+  height: 800rpx;
+  width: 100%;
+}
+
+.swiper-item-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
